@@ -1,5 +1,6 @@
 package com.br.logspadronizado.util;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -64,10 +65,19 @@ public class UtilCommon {
         }
     }
 
-    protected static Object getMessageStackTrace(Object response) {
+    public static Object getMessageStackTrace(Object response) {
         try {
             return response instanceof Throwable ? ((Throwable) response).getMessage() : response;
         } catch (Exception ex){
+            return null;
+        }
+    }
+
+    public static String convertObjectString(Object object) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.writeValueAsString(object);
+        } catch (Exception ex) {
             return null;
         }
     }

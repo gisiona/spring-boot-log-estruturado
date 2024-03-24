@@ -14,6 +14,7 @@
                         "exception": "%ex{full}",
                         "request": "%mdc{request}",
                         "response": "%mdc{response}",
+                        "error_response": "%mdc{error_response}",
                         "status_code": "%X{status_code}",
                         "status_request": "%X{status_request}",
                         "timestamp_start": "%X{timestamp_start}",
