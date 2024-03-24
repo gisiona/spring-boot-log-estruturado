@@ -1,0 +1,41 @@
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                <prettyPrint>true</prettyPrint>
+            </jsonFormatter>
+            <providers>
+                <pattern>
+                    <omitEmptyFields>false</omitEmptyFields>
+                    <pattern>
+                        {
+                        "timestamp": "%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}",
+                        "level": "%level",
+                        "thread": "%thread",
+                        "logger": "%logger{64}",
+                        "correlationID": "%mdc{correlationID}",
+                        "exception": "%X{ex}",
+                        "request": "%mdc{request}",
+                        "response": "%mdc{response}",
+                        "status_code": "%X{status_code}",
+                        "status_request": "%X{status_request}",
+                        "timestamp_start": "%X{timestamp_start}",
+                        "timestamp_end": "%X{timestamp_end}",
+                        "time_process": "%X{time_process}",
+                        "headers": "%X{headers}",
+                        "message": "%msg"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+
+
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
+
+
