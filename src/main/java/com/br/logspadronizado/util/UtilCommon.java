@@ -51,10 +51,9 @@ public class UtilCommon {
     }
 
     public static String getStatusRequest(HttpServletResponse response) {
-        return  String.valueOf((((response.getStatus() == 200)
-                || (response.getStatus() == 201))
-                ? Boolean.TRUE
-                : Boolean.FALSE));
+        return  String.valueOf((((response.getStatus() > 299))
+                ? Boolean.FALSE
+                : Boolean.TRUE));
     }
 
     public static String getStacktrace(Object response) {
