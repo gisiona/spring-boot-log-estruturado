@@ -43,3 +43,16 @@ A aplicação deve responder com o seguinte retorno no modelo de informações:
   "codigo": "dd11c68c-c6d4-4825-9b1d-d15803f237b5"
 }
 ```
+
+# Setup da apliacação
+Instale as dependências
+- Apache Maven 3.8.4 (https://maven.apache.org/download.cgi)
+- Java jdk 19 (https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html)
+- IDE de sua preferência (estou utilizando IntelliJ IDEA(https://www.jetbrains.com/pt-br/idea/))
+
+# Rode os testes
+Você pode executar os testes com o comando a seguir pelo CLI:
+
+```bash
+$ mvn test
+```
