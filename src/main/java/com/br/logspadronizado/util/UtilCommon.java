@@ -6,10 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UtilCommon {
@@ -58,5 +55,21 @@ public class UtilCommon {
                 || (response.getStatus() == 201))
                 ? Boolean.TRUE
                 : Boolean.FALSE));
+    }
+
+    public static String getStacktrace(Object response) {
+        try {
+            return response instanceof Throwable ? Arrays.toString(((Throwable) response).getStackTrace()) : null;
+        } catch (Exception ex){
+            return null;
+        }
+    }
+
+    protected static Object getMessageStackTrace(Object response) {
+        try {
+            return response instanceof Throwable ? ((Throwable) response).getMessage() : response;
+        } catch (Exception ex){
+            return null;
+        }
     }
 }

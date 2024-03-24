@@ -21,9 +21,7 @@ public class LogPadronizadoController {
 
     @GetMapping
     public String getLog(){
-        MDC.put("correlationID", UUID.randomUUID().toString());
-
-        log.info("Request Receive Controler");
+        log.info("Inicio Get Controler");
 
         return logService.ok();
     }
