@@ -56,3 +56,6 @@ Você pode executar os testes com o comando a seguir pelo CLI:
 ```bash
 $ mvn test
 ```
+
+## Referências
+    https://artefatox.com/configurando-logback-no-springboot/

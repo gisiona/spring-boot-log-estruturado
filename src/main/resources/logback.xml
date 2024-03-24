@@ -1,10 +1,6 @@
 <configuration>
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-
         <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
-            <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
-                <prettyPrint>true</prettyPrint>
-            </jsonFormatter>
             <providers>
                 <pattern>
                     <omitEmptyFields>false</omitEmptyFields>
@@ -15,7 +11,7 @@
                         "thread": "%thread",
                         "logger": "%logger{64}",
                         "correlationID": "%mdc{correlationID}",
-                        "exception": "%X{ex}",
+                        "exception": "%ex{full}",
                         "request": "%mdc{request}",
                         "response": "%mdc{response}",
                         "status_code": "%X{status_code}",

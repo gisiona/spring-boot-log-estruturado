@@ -6,10 +6,9 @@ import com.br.logspadronizado.service.LogService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -19,6 +18,7 @@ public class LogPadronizadoController {
 
     private final LogService logService;
 
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping
     public String getLog(){
         log.info("Inicio Get Controler");
@@ -26,6 +26,7 @@ public class LogPadronizadoController {
         return logService.ok();
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public LogResponse postLog(@RequestBody LogRequest request){
         log.info("Inicio Post Controler");
